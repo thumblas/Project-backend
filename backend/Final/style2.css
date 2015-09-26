@@ -1,0 +1,23 @@
+body
+    {
+        background-image: url("93.jpeg");
+        background-repeat: no-repeat;
+        background-size: 1900px 1500px;
+        margin-top: 50px;
+    }
+
+    h2
+    {
+       text-align: center;
+       color:#000033;
+       font:sans-serif;
+    }
+
+    h3
+    {
+       text-align: left;
+       color:#000033;
+       font:sans-serif;
+       margin-left: 200px;
+       margin-top: 300px; 
+    }

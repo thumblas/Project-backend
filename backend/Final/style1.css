@@ -1,0 +1,24 @@
+
+    body 
+    {
+        background-image: url("/home/prathamsh/Final/abc.jpg");
+        background-repeat: no-repeat;
+        background-size: 1900px 1200px;
+	    align:center
+    }
+    
+    h1
+    {
+        align: center;
+        color: #4DB8DB;
+        font-size: 100px; 
+        font-style: normal;
+        font-weight: 600;
+        font-variant: small-caps; 
+    }
+
+    form
+    {
+        color:#80CCE6;
+    }
+

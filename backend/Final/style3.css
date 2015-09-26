@@ -1,0 +1,19 @@
+ body
+    {
+        background-image: url("/home/prathamsh/backend/templates/93.jpeg");
+        background-repeat: no-repeat;
+        background-size: 1900px 1000px;
+         margin-top: 100px;
+    }
+  h4
+   {
+      
+       color:#00001F;
+       font:sans-serif;	
+              
+   }
+   .style1
+   {
+	    font-family:sans-serif;
+	    font-size:17px;
+   }
