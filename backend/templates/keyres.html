@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ 
+</head>
+
+<style type="text/css">
+    
+    body
+    {
+        background-image: url("93.jpeg");
+        background-repeat: no-repeat;
+        background-size: 1500px 1500px;
+        margin-top: 50px;
+    }
+
+    h2
+    {
+       text-align: center;
+       color:#000033;
+       font:sans-serif;
+    }
+
+    button
+    {
+        margin-left: 600px;
+        margin-top: 450px;
+        color: #000033;
+    }
+
+</style>
+<body>
+
+    <h2>Tweets containing the entered keyword are as follows:</h2>    
+    <button class="btn">Graphical view</button>
+    <br>
+    <div id="piechart" style="width: 500px; height: 500px; " class="piechart"></div>
+    <script>
+        $(document).ready(function(){
+            $(".btn").click(function(){
+                google.load("visualization", "1", {packages:["corechart"], "callback": drawChart});
+                google.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                        var pos=50;
+                        var neg=50;
+                        var data = google.visualization.arrayToDataTable([
+                        ['Sentiment', 'per 20 tweets'],
+                        ['Positive', pos],
+                        ['Negative', neg],
+                        ]);
+                        var options = {
+                        is3D: true,
+                        legend: {position: 'top', textStyle: {color: 'black', fontSize: 16}}
+                        /*backgroundColor: #000033*/
+                        };
+
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+
+                        chart.draw(data, options);
+                        }
+                    });
+                });
+    </script>
+
+</body>
+
+</html>
