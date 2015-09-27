@@ -3,12 +3,12 @@ import re,csv,nltk
 from nltk.corpus import stopwords
 from sys import argv
 from sys import argv
-'''
+
 string = []
 for line in argv[1:]:
     string.append(line)
 test_string = " ".join(str(i) for i in string)
-'''
+
 f1 = open('/home/prathamsh/ML/classifier.pickle')
 classifier = pickle.load(f1)
 

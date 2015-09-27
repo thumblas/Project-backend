@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+<body>
+
+    <h2>Tweets containing the entered keyword are as follows:</h2>    
+    <p id="disp"></p>
+    <script>
+    var tweets = {{ tweets_array|safe }};
+    var sent = {{ sent_array|safe }};
+    var i=0;
+    var text='';
+    for(i=0;i<5;i++){
+        text+=tweets[i]+"<br>"+sent[i]+"<br>";
+       
+           }
+            document.getElementById("disp").innerHTML=text;
+   // document.getElementById("disp").innerHTML='This is keyword {{ abc }}';
+    </script>
+    <button class="btn">Graphical view</button>
+    <br>
+    <div id="piechart" style="width: 500px; height: 500px; " class="piechart"></div>
+    <script>
+        $(document).ready(function(){
+            $(".btn").click(function(){
+                google.load("visualization", "1", {packages:["corechart"], "callback": drawChart});
+                google.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                        var pos=parseInt({{ count1 }});
+                        var neg=parseInt({{ count2 }});
+                        var data = google.visualization.arrayToDataTable([
+                        ['Sentiment', 'per 20 tweets'],
+                        ['Positive', pos],
+                        ['Negative', neg],
+                        ]);
+                        var options = {
+                        is3D: true,
+                        legend: {position: 'top', textStyle: {color: 'black', fontSize: 16}}
+                        /*backgroundColor: #000033*/
+                        };
+
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(data, options);
+                        }
+                    });
+                });
+    </script>
+
+</body>
+
+</html>

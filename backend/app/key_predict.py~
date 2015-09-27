@@ -3,16 +3,17 @@ import re,csv,nltk
 from nltk.corpus import stopwords
 from sys import argv
 from sys import argv
-'''
+
 string = []
 for line in argv[1:]:
     string.append(line)
 test_string = " ".join(str(i) for i in string)
-'''
-f1 = open('/home/prathamsh/ML/classifier.pickle')
+
+
+f1 = open('/home/prathamsh/backend/app/classifier.pickle')
 classifier = pickle.load(f1)
 
-f2 = open('/home/prathamsh/ML/featurelist.pickle')
+f2 = open('/home/prathamsh/backend/app/featurelist.pickle')
 featureList = pickle.load(f2)
 
 def clean_tweet(tweet):
@@ -50,16 +51,18 @@ def getFeatureVector(tweet):
             continue
         else:
             featureVector.append(w.lower())
+    print featureVector
     return featureVector
 
 def main(test_string):
 	processedTestTweet = clean_tweet(test_string) 
 	value = classifier.classify(extract_features(getFeatureVector(processedTestTweet)))
 	if value=='0':
-    		return "Negative"
+    		print "Negative"
 	elif value=='1':
-    		return "Positive"
+    		print "Positive"
 	f1.close()
 	f2.close()
 
+main(test_string)
 

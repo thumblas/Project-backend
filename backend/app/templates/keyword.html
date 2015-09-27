@@ -1,0 +1,43 @@
+<html>
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static '/static/style4.css' %}" />
+<title>
+</title>
+</head>
+<body>
+<div id="buttonreplacement" style="margin-left:0px;margin-top:150px ;display:none;">
+<center>	<img id="buttonreplacement" style="width:800px;height:600px;background-color: black;"src="{{STATIC_URL}}/static/yo.gif" alt="loading..."></center>
+</div>
+<center id="formsubmitbutton" class="spinner">
+<h1>Enter the keyword: </h1>
+<br>
+<form action="keyres.html" method="POST" style="padding: 0; margin: 0" >
+<input type="textarea" maxlength="20" name="key" style="width: 500px;height: 35px" autocomplete="off"/>
+<br><br>
+<input type="submit"   style="width:110px;height:35px;color:#00001F;" value="See result"  name="X2" onclick="ButtonClicked()">
+</form>
+</center>
+<script type="text/javascript">
+function ButtonClicked()
+{
+   document.getElementById("formsubmitbutton").style.display = "none"; // to undisplay
+   document.getElementById("buttonreplacement").style.display = ""; // to display
+   return true;
+}
+var FirstLoading = true;
+function RestoreSubmitButton()
+{
+   if( FirstLoading )
+   {
+      FirstLoading = false;
+      return;
+   }
+   document.getElementById("formsubmitbutton").style.display = ""; // to display
+   document.getElementById("buttonreplacement").style.display = "none"; // to undisplay
+}
+//document.onfocus = RestoreSubmitButton;
+// To disable restoring submit button, disable or delete next line.
+</script>
+</body>
+</html>
